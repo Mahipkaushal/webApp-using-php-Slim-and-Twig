@@ -12,14 +12,19 @@ var validateLoginForm = function() {
     return $isValid;
 }
 var sendLogin = function() {
-    $data = $('#form input[type="text"], #form input[type="password"], #form input[type="checkbox"]:checked');
+    $data = $('#form input[type="text"], #form input[type="password"], #form input[type="hidden"], #form input[type="checkbox"]:checked');
     $.ajax({
-        url: $baseUrl + '/login',
+        url: $baseUrl + '/auth/login',
         type: 'POST',
         data: $data,
         dataType: 'json',
         success: function(json) {
-            console.log(json);
+            if(json['success']) {
+                alert(json['success']);
+            }
+            if(json['error']) {
+                alert('Error-' + json['error']['code'] + ': ' + json['error']['message']);
+            }
         } 
     });
 }

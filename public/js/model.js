@@ -1,7 +1,7 @@
 var getLoginScreen = function() {
     showOverlayLoader();
-    /*$.ajax({
-       url: $baseUrl + '/login',
+    $.ajax({
+       url: $baseUrl + '/auth/login',
        type: 'GET',
        dataType: 'html',
        beforeSend: function() {
@@ -13,5 +13,5 @@ var getLoginScreen = function() {
        success: function(html) {
             $(document).find('div[name="content"]').html(html);
        }
-    });*/
+    });
 }

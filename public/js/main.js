@@ -1,4 +1,3 @@
-var $baseUrl = 'http://localhost/tailmill/app/expense'
 var $overlay = '';
 var $overlayLoader = '<div class="overlay_loader"><img src="images/tailmill_logo_white.png" alt="Loading..." /></div>';
 

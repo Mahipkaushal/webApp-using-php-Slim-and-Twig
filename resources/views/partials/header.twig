@@ -1,6 +1,11 @@
 <header>
     <div class="heading">
         <div>{{ page.title }}</div>
+        {% if(auth.check) %}
+            <div style="float:  right;">{{ auth.user.username }}</div>
+        {% else %}
+            <div style="float:  right;">Test</div>
+        {% endif %}
     </div>
     <div class="header-bottom"></div>
     {% include 'partials/nav.twig' %}
