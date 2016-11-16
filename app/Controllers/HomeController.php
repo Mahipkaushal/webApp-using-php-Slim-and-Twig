@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
 use Slim\Views\Twig as View;
 
 class HomeController extends Controller {
@@ -14,7 +13,7 @@ class HomeController extends Controller {
             'description'   => 'Welcome to the official Expense Manager',
             'author'        => 'Mahip Kaushal'
             ],
-        ]; 
+        ];        
         return $this->view->render($response, 'home.twig', $vars);
     }
     

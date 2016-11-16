@@ -9,20 +9,39 @@ var validateLoginForm = function() {
     } else {
         $isValid = true;
     }
+
     return $isValid;
 }
+
 var sendLogin = function() {
-    $data = $('#form input[type="text"], #form input[type="password"], #form input[type="checkbox"]:checked');
+    $remember = $('#remember_me').is(':checked');
+    $data = $('#form input[type="text"], #form input[type="password"], #form input[type="hidden"], #form input[type="checkbox"]:checked');
     $.ajax({
-        url: $baseUrl + '/login',
+        url: $baseUrl + '/auth/login',
         type: 'POST',
         data: $data,
         dataType: 'json',
         success: function(json) {
-            console.log(json);
+            if(json['success']) {
+                displayMessage(json['success'], 'success');
+            }
+            if(json['user']) {
+                $username = json['user']['username'];
+                $token = json['user']['token'];
+                if($remember === true) {
+                    saveInLocalStorage();
+                    console.log(getUser());
+                }
+                setUpAjax();
+                getHomeScreen();
+            }
+            if(json['error']) {
+                displayMessage(json['error'], 'error');
+            }
         } 
     });
 }
+
 var login = function() {
     if(validateLoginForm() === true) {
         sendLogin();

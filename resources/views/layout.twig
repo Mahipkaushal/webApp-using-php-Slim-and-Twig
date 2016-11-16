@@ -15,14 +15,19 @@
         
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script>
+            var $baseUrl = '{{ base_url() }}';
+        </script>
     </head>
     <body class="no-user-select">
+        {% include 'partials/header.twig' %} 
 
-        <div class="container">
-            {% include 'partials/header.twig' %}
+        <div id="app">
+                       
             {% block content %} {% endblock %}
-            {% include 'partials/footer.twig' %}
+            
         </div>
-
+            
+        {% include 'partials/footer.twig' %}
     </body>
 </html>
