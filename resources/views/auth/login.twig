@@ -17,6 +17,7 @@
                 <p class="submit">
                     <a class="form-controls button" onclick="login(); return false;"><i class="fa fa-lock"></i> Login</a>
                 </p>
+                {{ csrf.field | raw }}
             </form>
         </div>
     </section>

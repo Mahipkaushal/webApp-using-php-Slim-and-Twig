@@ -7,6 +7,7 @@ use Slim\Views\Twig as View;
 class HomeController extends Controller {
     
     public function index($request, $response) {
+        $this->flash->addMessage('error', 'This is Flash Error message');
         $vars = [
             'page' => [
             'title'         => 'Expense Manager',

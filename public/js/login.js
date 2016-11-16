@@ -14,7 +14,10 @@ var validateLoginForm = function() {
 }
 
 var sendLogin = function() {
+<<<<<<< HEAD
     $remember = $('#remember_me').is(':checked');
+=======
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
     $data = $('#form input[type="text"], #form input[type="password"], #form input[type="hidden"], #form input[type="checkbox"]:checked');
     $.ajax({
         url: $baseUrl + '/auth/login',
@@ -23,6 +26,7 @@ var sendLogin = function() {
         dataType: 'json',
         success: function(json) {
             if(json['success']) {
+<<<<<<< HEAD
                 displayMessage(json['success'], 'success');
             }
             if(json['user']) {
@@ -37,6 +41,12 @@ var sendLogin = function() {
             }
             if(json['error']) {
                 displayMessage(json['error'], 'error');
+=======
+                alert(json['success']);
+            }
+            if(json['error']) {
+                alert('Error-' + json['error']['code'] + ': ' + json['error']['message']);
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
             }
         } 
     });

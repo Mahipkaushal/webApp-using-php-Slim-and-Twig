@@ -31,7 +31,11 @@ final class Postgre {
 
 				pg_free_result($resource);
 
+<<<<<<< HEAD
 				$query = new \stdClass();
+=======
+				$query = new stdClass();
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
 				$query->row = isset($data[0]) ? $data[0] : array();
 				$query->rows = $data;
 				$query->num_rows = $i;

@@ -10,7 +10,10 @@ $app = new \Slim\App([
     'settings'  =>  [
         'determineRouteBeforeAppMiddleware' => true,
         'displayErrorDetails'   =>  true,
+<<<<<<< HEAD
         'addContentLengthHeader' => false,
+=======
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
         'db'    =>  $dbConfig       
     ]
 ]);
@@ -27,6 +30,7 @@ $container['dbDriver'] = function($container) {
 };
 
 $container['db'] = function($container) {
+<<<<<<< HEAD
     return new \App\Library\Db($container->dbDriver);  
 };
 
@@ -38,6 +42,15 @@ $container['token'] = function($container) {
     return new \App\Auth\Token($container);
 };
 
+=======
+    return new \App\Library\Database\Db($container->dbDriver);  
+};
+
+$container['auth'] = function($container) {
+    return new \App\Auth\Auth;
+};
+
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
 $container['flash'] = function($container) {
     return new \Slim\Flash\Messages;
 };
@@ -74,15 +87,24 @@ $container['AuthController'] = function($container) {
     return new \App\Controllers\Auth\AuthController($container);  
 };
 
+<<<<<<< HEAD
 $container['ExpenseController'] = function($container) {
     return new \App\Controllers\Expense\ExpenseController($container);  
 };
 
+=======
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
 //$container['csrf'] = function($container) {
   //  return new \Slim\Csrf\Guard;
 //};
 
+<<<<<<< HEAD
 //$app->add(new \App\Middleware\TokenMiddleware($container));
+=======
+$app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
+
+$app->add(new \App\Middleware\OldInputMiddleware($container));
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
 
 //$app->add(new \App\Middleware\CsrfViewMiddleware($container));
 

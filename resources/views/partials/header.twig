@@ -1,7 +1,17 @@
 <header>
+<<<<<<< HEAD
     <div class="header">
         <span class="title">{{ page.title }}</span>
         <span class="user"></span>
+=======
+    <div class="heading">
+        <div>{{ page.title }}</div>
+        {% if(auth.check) %}
+            <div style="float:  right;">{{ auth.user.username }}</div>
+        {% else %}
+            <div style="float:  right;">Test</div>
+        {% endif %}
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
     </div>
     <div class="header-bottom"></div>
 </header>

@@ -3,14 +3,22 @@
 var getLoginScreen = function() {
     showOverlayLoader();
     $.ajax({
+<<<<<<< HEAD
         url: $baseUrl + '/auth/login',
         type: 'GET',
         dataType: 'json',
         beforeSend: function() {
+=======
+       url: $baseUrl + '/auth/login',
+       type: 'GET',
+       dataType: 'html',
+       beforeSend: function() {
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
             showOverlayLoader();
         },
         complete: function() {
             hideOverlayLoader();
+<<<<<<< HEAD
         },
         success: function(json) {
             if(json['html']) {
@@ -61,5 +69,11 @@ var logout= function() {
                 displayMessage(json['success'], 'success');
             }
         }
+=======
+       },
+       success: function(html) {
+            $(document).find('div[name="content"]').html(html);
+       }
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
     });
 }

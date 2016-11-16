@@ -6,7 +6,11 @@ class MySQLi {
 	private $link;
 
 	public function __construct() {	   
+<<<<<<< HEAD
 		$this->link = mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+=======
+		$this->link = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
 
 		if (mysqli_connect_error()) {
 			throw new ErrorException('Error: Could not make a database link');
@@ -27,7 +31,11 @@ class MySQLi {
 					$data[] = $row;
 				}
 
+<<<<<<< HEAD
 				$result = new \stdClass();
+=======
+				$result = new stdClass();
+>>>>>>> 93a1ca385c20b137c9fbc0bf0057bf0148d07729
 				$result->num_rows = $query->num_rows;
 				$result->row = isset($data[0]) ? $data[0] : array();
 				$result->rows = $data;
